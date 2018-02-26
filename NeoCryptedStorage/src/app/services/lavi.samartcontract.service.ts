@@ -6,8 +6,8 @@ import { AccountService } from './account.service';
 export class LaviSamartcontractService {
 
   SMARTCONTRACTSCRIPTHASH = '4cb9e1941c687975fed8251756cd2cac6718ee2d';
-  NET = 'http://neo-privnet:5000';
-  RPCNET = 'http://neo-privnet:30333';
+  NET = 'Testnet';
+  RPCNET = 'Testnet';
   
   constructor(private accountService: AccountService) { }
 
