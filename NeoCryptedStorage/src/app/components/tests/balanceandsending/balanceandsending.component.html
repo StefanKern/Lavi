@@ -1,0 +1,96 @@
+<div class="mb-5">
+  <h1>Connect to Test or Privatenet with Neon-js</h1>
+  <p>This Demo connects to the defined net and executes simple commands as getting the balance and sending Neo or Gas.</p>
+  <p>For setting up a private net, the docker composer script: <a href="https://gist.github.com/StefanKern/aad447bf13f1cffb1e486d404ada6e45">StefanKern/docker-compose.yml</a> was used (fork from <a href="https://gist.github.com/slipo/f18f1a0b5e6adb7b0bf172b93379d891">slipo/docker-compose.yml</a>)</p>
+</div>
+<div class="mb-5">
+  <h2>Get Balance Demo</h2>
+  <form class="form-inline" #invocationObjectFrom="ngForm" (ngSubmit)="getbalance()">
+    <div class="form-row">
+      <div class="col">
+        <input class="form-control" placeholder="Test oder Private net" [(ngModel)]="net" name="net">
+      </div>
+      <div class="col">
+        <input class="form-control" placeholder="Wallet Addresse" [(ngModel)]="address" name="address" style="width: 400px;">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary mb-2">Get Balance</button><br />
+      </div>
+    </div>
+  </form>
+  <small id="emailHelp" class="form-text text-muted  mb-3">enter <code>TestNet</code> or <code>http://localhost:5000</code> (when you have a privatenet running)</small>
+
+  <p>
+    <b>Neo: {{balnce.Neo}}</b><br />
+    <b>Gas: {{balnce.Gas}}</b>
+  </p>
+
+  <button type="button" class="btn btn-outline-primary" (click)="showGetBalanceDetails = !showGetBalanceDetails"
+          [attr.aria-expanded]="!showGetBalanceDetails" aria-controls="collapseExample">
+    Show Details
+  </button>
+  <div id="collapseExample" [ngbCollapse]="showGetBalanceDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{balance | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <h2>Send Assets Demo</h2>
+
+  <form class="mb-3" #invocationObjectFrom="ngForm" (ngSubmit)="sendAssets()">
+    <div class="form-row">
+      <b>Sender Data</b>
+    </div>
+    <div class="form-row mb-2">
+      <div class="col">
+        <input class="form-control" placeholder="Test oder Private net" [(ngModel)]="net" name="send_net">
+      </div>
+      <div class="col">
+        <input class="form-control" placeholder="Privatekey" [(ngModel)]="privatekey" name="send_privatekey" style="width: 600px;">
+      </div>
+      <div class="col">
+        <input class="form-control" placeholder="Password" type="password" [(ngModel)]="password" name="send_password">
+      </div>
+      <div class="col" style="flex-grow: 0;">
+        <input class="form-control" placeholder="Amount Neo" type="number" [(ngModel)]="sendNeo" name="send_neo" style="width: 140px;">
+      </div>
+      <div class="col" style="flex-grow: 0;">
+        <input class="form-control" placeholder="Amount GAS" type="number" [(ngModel)]="sendGas" name="send_gas" style="width: 140px;">
+      </div>
+    </div>
+    <div class="form-row">
+      <b>Reciver Data</b>
+    </div>
+    <div class="form-row mb-2">
+      <div class="col">
+        <input class="form-control" placeholder="Target Address" type="text" [(ngModel)]="targetaddress" name="targetaddress" style="width: 400px;">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <button class="btn btn-primary" type="submit">Send One Gas</button><br />
+      </div>
+    </div>
+  </form>
+  <small class="form-text text-muted">Please don't steal my testnet NEO/GAS</small>
+
+  <p>
+    <b>Sendresult: {{sendresult}}</b>
+  </p>
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="showSendContractDetails = !showSendContractDetails"
+          [attr.aria-expanded]="!showSendContractDetails" aria-controls="collapseExample">
+    Show Details
+  </button>
+  <div id="collapseExample" [ngbCollapse]="showSendContractDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{sendresultDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>

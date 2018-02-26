@@ -1,0 +1,26 @@
+<div class="mb-3">
+  <h2>Azure blob storage upload demo</h2>
+  <p>Tests for uploading images to things to the azure storage</p>
+  Resoruces:
+  <ul>
+    <li><a href="https://docs.microsoft.com/de-de/azure/vs-azure-tools-connected-services-storage">https://docs.microsoft.com/de-de/azure/vs-azure-tools-connected-services-storage</a></li>
+  </ul>
+</div>
+<div>
+  Files: 
+  <ul>
+    <li *ngFor="let item of filelist | async">
+      <a href="{{item}}">{{item}}</a>
+    </li>
+  </ul>
+  <button class="btn btn-primary" (click)="getlist()">Get File List</button>
+</div>
+<hr />
+<div>
+
+  {{uploadresult | async | json }}
+  <input type="file" #fileInput placeholder="Upload file..." />
+  {{ files | json }}
+  <button class="btn btn-primary" (click)="upload()">Upload</button>
+</div>
+<hr />

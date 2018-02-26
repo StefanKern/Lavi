@@ -1,0 +1,58 @@
+<div>
+  <h1>Create Offer</h1>
+  <p>
+    You want to offer a file to a file over Lavi. Just upload it with the underlying form!<br />
+    It get's fully encrypted inside the browser, uploaded to a Databse and is made avalible in the offer list. <del>Alternitifly you can provide the url to the file.</del>
+  </p>
+  <p>As soon as somebody want's to accept your offer, you will get a notification. This request is stored on the blockchain<del> and you have a certain time, to fullfill this request. If you don't fullfill the request it get's removed</del>. There currently is a limit of one request per item.</p>
+
+
+  <div class="alert alert-info">
+    Select a file an it is Clinetsidd encrypted and uploaded to the Azure storage. The file is encrypted with the Password you choose. Each file should be encrypted with an unique password.<br />But don't worry that you forget them. The passwords are encrypted with by your account and uploaded as well.
+  </div>
+  <form #creationForm="ngForm"
+        (ngSubmit)="createOffer(creationForm, creationForm.form.valid)"
+        [hidden]="uploading">
+
+    <div class="alert alert-error" [hidden]="valid">
+      Please check the inputs.
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': errorFile }">
+      <label for="file">File</label>
+      <input type="file"
+             class="form-control form-control-file"
+             #fileInput
+             required
+             id="file"
+             name="addedfile"
+             placeholder="Upload file..." />
+      <small>Max 100kB</small>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error': errorPassword }">
+      <label for="password">Password</label>
+      <input type="password"
+             class="form-control form-control-file"
+             [(ngModel)]="password"
+             #fileInput
+             name="filepassword"
+             id="password"
+             required
+             placeholder="Passw0rd" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create Offer</button>
+  </form>
+
+  <div [hidden]="!uploading">
+    <b>Smart contract result:</b><br />
+    <b [hidden]="!smartcontractresultSuccess">Error, the smart contract could not be executed!</b>
+    <code>{{smartcontractresult | json}}</code>
+
+
+    <b>Upload result (after smart contract was success full written):</b><br />
+    <code>{{uploadresult | async | json}}</code>
+  </div>
+
+  <code>{{result | async}}</code>
+</div>

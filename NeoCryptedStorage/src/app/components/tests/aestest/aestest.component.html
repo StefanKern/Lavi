@@ -1,0 +1,62 @@
+<div class="mb-3">
+  <form #invocationObjectFrom="ngForm" (ngSubmit)="encrypt()">
+    <h2>Encryption (Text)</h2>
+    <p>Samples to encrypt text</p>
+
+    <div class="form-group">
+      <label for="Text">Text to encrpyt</label>
+      <textarea class="form-control" rows="5" placeholder="Lorem ipsum dolor sit am..." [(ngModel)]="text" name="Text" id="Text"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" placeholder="P4ssw0rd" [(ngModel)]="password" name="Password" id="password">
+      <small class="form-text text-muted">PW pbkdf2: {{passwordPbkdf2}} ({{passwordPbkdf2.length}})</small>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Invoke String Smart Contract</button>
+    </div>
+
+  </form>
+  <div class="mb-3">
+    Encrypted Text: <br />
+    <code>{{encryptedText}}</code>
+  </div>
+  <div class="mb-3">
+    Re-DecryptedText: <br />
+    <code>{{reDecryptedText}}</code>
+  </div>
+</div>
+
+<div class="mb-3">
+  <form #invocationObjectFrom="ngForm" (ngSubmit)="encryptImage()">
+    <h2>Encryption (Image)</h2>
+    <p>Samples to an files</p>
+
+    <div class="form-group">
+      <label for="Image">Image</label>
+      <input type="file" class="form-control" #fileInput placeholder="Upload file..." name="Image" id="Image">
+    </div>
+
+    <div class="form-group">
+      <label for="PasswordImg">Password:</label>
+      <input type="password" class="form-control" placeholder="P4ssw0rd" [(ngModel)]="passwordImg" name="PasswordImg" id="passwordImg">
+      <small class="form-text text-muted">PW pbkdf2: {{passwordPbkdf2Img}} ({{passwordPbkdf2Img.length}})</small>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Invoke String Smart Contract</button>
+    </div>
+
+  </form>
+  <div class="mb-3">
+    Encrypted Image: <br />
+    <code>{{encryptedImage}}</code>
+  </div>
+  <div class="mb-3">
+    Re-Decryptedimage: <br />
+    <div ng-show="reDecryptedImage">
+      <img src="{{reDecryptedImage}}" />
+    </div>
+    <code>{{reDecryptedImage}}</code>
+  </div>
+</div>

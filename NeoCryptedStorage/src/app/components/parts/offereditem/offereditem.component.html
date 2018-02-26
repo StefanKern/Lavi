@@ -1,0 +1,7 @@
+<div class="d-flex w-100 justify-content-between">
+  <div class="mb-1 h5">{{file.title}}</div>
+  <a class="btn btn-primary"
+     [routerLink]="['/takeoffer', offer.decryptedFileHash]"
+     [hidden]="isOwn">Buy</a>
+</div>
+<p class="mb-1"><del><b>Price:</b> {{offer.price}} Avablible till Block: {{offer.avalibeTimeInBlocks}}</del></p>

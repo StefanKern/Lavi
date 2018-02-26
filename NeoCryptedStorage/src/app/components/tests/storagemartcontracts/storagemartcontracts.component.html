@@ -1,0 +1,50 @@
+<div class="mb-3">
+  <h1>Call a storage Contract</h1>
+  <form  #invocationObjectFrom="ngForm" (ngSubmit)="addStorageRequest()">
+    <h2>Store value in SC</h2>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="key" [(ngModel)]="setKey" name="setKey">
+      <input type="text" class="form-control" placeholder="value" [(ngModel)]="setValue" name="setValue">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Store in Smart contract</button>
+      </div>
+    </div>
+    <b>Result: {{setRequestResult}}</b><br />
+  </form>
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="hideSetDetails = !hideSetDetails">
+    Show Details
+  </button>
+  <div [ngbCollapse]="hideSetDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{setRequestResultDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-3">
+  <h1>Call a storage Contract</h1>
+  <form #invocationObjectFrom="ngForm" (ngSubmit)="getPendingRequest()">
+    <h2>Store value in SC</h2>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="key" [(ngModel)]="getKey" name="getKey">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Get value from SC</button>
+      </div>
+    </div>
+    <b>Result: {{getRequestResult}}</b><br />
+  </form>
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="hideGetDetails = !hideGetDetails">
+    Show Details
+  </button>
+  <div [ngbCollapse]="hideGetDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{getRequestResultDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>

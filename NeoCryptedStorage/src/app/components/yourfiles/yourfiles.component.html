@@ -1,0 +1,29 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h2>Your Files Offer</h2>
+    <p>Here are the files you bought</p>
+
+    <div class="alert alert-info">
+      Sadly this part wasn't finished anymore. It should demonstrate how the file is crypted back to the image and displayed. Sadly I ran into an unexpected Error. This and the Controct encryption funtionallity must wait till the next release. <br /><br />
+      <b>Thank you for trying out LAVI</b>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let file of yourfiles | async">
+        <div class="d-flex w-100 justify-content-between">
+          <div class="mb-1 h5">{{offer.title}}</div>
+          <button class="btn btn-primary" (click)="grant(offer)">
+            Grant
+          </button>
+        </div>
+        <p class="mb-1">Press the take button grant this offer</p><br />
+        <p>For debuggin purposes</p>
+        <code>decryptedFileHash: {{offer.decryptedFileHash}}</code><br />
+        <code>encryptedPassword: {{offer.encryptedPassword}}</code>
+        <code>decryptePW: {{offer.decryptePW}}</code>
+        <code>shared secret: {{offer.sharedSecret}}</code>
+        <code>Grantresult: {{result | async }}</code>
+      </li>
+    </ul>
+  </div>
+</div>

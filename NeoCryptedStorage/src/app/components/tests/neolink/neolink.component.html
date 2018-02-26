@@ -1,0 +1,76 @@
+<h1>NeoLink example</h1>
+<p>This example connects to Neo link and executes a smart contract.</p>
+<div class="row">
+  <p>{{neoLinkStatus}} <span ng-show="neonLinkAdress">(Address: {{neonLinkAdress}})</span></p>
+  <form #invocationObjectFrom="ngForm" (ngSubmit)="onSubmit()" class="col-md-6">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary" (click)="setTestContract()">Test</button>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">ScriptHash</label>
+      <input type="text" class="form-control"
+             id="scriptHash"
+             required
+             [(ngModel)]="invocationObject.scriptHash"
+             name="scriptHash">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">operation</label>
+      <input type="text"
+             class="form-control"
+             id="operation"
+             required
+             [(ngModel)]="invocationObject.operation"
+             name="operation">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">arg1</label>
+      <input type="text"
+             class="form-control"
+             id="arg1"
+             required
+             [(ngModel)]="invocationObject.arg1"
+             name="arg1">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">arg2</label>
+      <input type="text"
+             class="form-control"
+             id="arg2"
+             required
+             [(ngModel)]="invocationObject.arg2"
+             name="arg2">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">assetType</label>
+      <input type="text"
+             class="form-control"
+             id="assetType"
+             required
+             [(ngModel)]="invocationObject.assetType"
+             name="assetType">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">assetAmount</label>
+      <input type="text"
+             class="form-control"
+             id="assetAmount"
+             required
+             [(ngModel)]="invocationObject.assetAmount"
+             name="assetAmount">
+      <small id="emailHelp" class="form-text text-muted">TODO</small>
+    </div>
+
+    <button class="btn btn-primary">Invoce Contract</button>
+  </form>
+  <div class="col-md-6">
+    <code>
+      {{invocationObject | json}}
+    </code>
+  </div>
+</div>

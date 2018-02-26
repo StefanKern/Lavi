@@ -1,0 +1,16 @@
+@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<app-root></app-root>
+
+@section Scripts {
+  <environment>
+    <script asp-append-version="true" src="inline.bundle.js"></script>
+    <script asp-append-version="true" src="polyfills.bundle.js"></script>
+    <script asp-append-version="true" src="vendor.bundle.js"></script>
+    <script asp-append-version="true" src="main.bundle.js"></script>
+  </environment>
+}

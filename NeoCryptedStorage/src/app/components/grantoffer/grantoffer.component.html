@@ -1,0 +1,23 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h2>Grant Offer</h2>
+    <p>Here is a list your offered file, which where taken by somebody. That the person can take the file, you must grant him access! As long as you don't do this, the requst isn't filled (and the assets are stored kept in the smart contranct and can be reclaimed).</p>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let offer of grantoffers | async">
+        <div class="d-flex w-100 justify-content-between">
+          <div class="mb-1 h5">{{offer.title}}</div>
+          <button class="btn btn-primary" (click)="grant(offer)">
+            Grant
+          </button>
+        </div>
+        <p class="mb-1">Press the take button grant this offer</p><br />
+        <p>For debuggin purposes</p>
+        <code>decryptedFileHash: {{offer.decryptedFileHash}}</code><br />
+        <code>encryptedPassword: {{offer.encryptedPassword}}</code>
+        <code>decryptePW: {{offer.decryptePW}}</code>
+        <code>shared secret: {{offer.sharedSecret}}</code>
+        <code>Grantresult: {{result | async }}</code>
+      </li>
+    </ul>
+  </div>
+</div>

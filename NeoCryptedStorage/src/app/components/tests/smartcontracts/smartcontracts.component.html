@@ -1,0 +1,63 @@
+<div class="mb-3">
+  <h2>Integer contract demo</h2>
+  <p>The following contract answers the question to live itself</p>
+  <button class="btn btn-primary btn-sm" (click)="invokeIntSC()">Invoke Integer Smart Contract</button><br />
+  <b>Result: {{intSCResult}}</b><br />
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="hideIntSCDetails = !hideIntSCDetails">
+    Show Details
+  </button>
+  <div [ngbCollapse]="hideIntSCDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{intSCDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div class="mb-3">
+  <h2>String contract demo</h2>
+  <p>The hello world contract you know from each beginner Demo</p>
+  <button class="btn btn-primary btn-sm" (click)="invokeStringSC()">Invoke String Smart Contract</button><br />
+  <b>Result: {{stringSCResult}}</b><br />
+
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="hideStringSCDetails = !hideStringSCDetails">
+    Show Details
+  </button>
+  <div [ngbCollapse]="hideStringSCDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{stringSCDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="mb-3">
+  <form  #invocationObjectFrom="ngForm" (ngSubmit)="invokeParamSC()">
+    <h2>ContractparameterCall</h2>
+    <p>Calls a smart contract with one input parameter</p>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="e.g. Stefan" [(ngModel)]="paramSCparameter" name="paramSCparameter">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Invoke String Smart Contract</button>
+      </div>
+    </div>
+    <b>Result: {{paramSCResult}}</b><br />
+  </form>
+
+  <button type="button" class="btn btn-outline-primary mt-3" (click)="hideParamSCDetails = !hideParamSCDetails">
+    Show Details
+  </button>
+  <div [ngbCollapse]="hideParamSCDetails">
+    <div class="card">
+      <div class="card-body">
+        <code>{{paramSCDetails | json}}</code>
+      </div>
+    </div>
+  </div>
+</div>

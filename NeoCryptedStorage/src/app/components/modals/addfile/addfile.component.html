@@ -1,0 +1,54 @@
+<div>
+    <div class="modal-header">
+      <strong class="modal-title">Upload File</strong>
+      <button aria-label="Close" class="close" type="button" (click)="activeModal.close()">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div>
+      <form (ngSubmit)="save(addFileForm, addFileForm.form.valid) && activeModal.close()"
+            #addFileForm="ngForm"
+            [hidden]="uploading">
+        <div class="modal-body">
+          <div class="alert alert-info">
+            Select a file an upload it to an ENCRYPTED to the Azure storage. The file is encrypted with the Password you choose. Each file should be encrypted with an unique password.<br />Since nobody can remeber so many passwords, all passwords are saved encrypted with your NEO password.
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': errorFile }">
+            <label for="file">File</label>
+            <input type="file"
+                   class="form-control form-control-file"
+                   #fileInput
+                   required
+                   id="file"
+                   name="addedfile"
+                   placeholder="Upload file..." />
+            <small>Max 100kB</small>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': errorPassword }">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control form-control-file"
+                   [(ngModel)]="password"
+                   #fileInput
+                   name="filepassword"
+                   id="password"
+                   required
+                   placeholder="Passw0rd" />
+
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Abbrechen</button>
+          <button type="submit" class="btn btn-primary">
+            Upload
+          </button>
+        </div>
+      </form>
+      <div [hidden]="!uploading">
+        <code>{{uploadresult | async | json}}</code>
+      </div>
+    </div>
+</div>

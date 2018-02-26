@@ -1,0 +1,61 @@
+<h1>Test LAVI Smart contract with neon-js</h1>
+<div class="card">
+  <div class="card-body">
+    <h2>Open Order</h2>
+
+    <form #openOfferForm="ngForm" (ngSubmit)="openOffer()">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="30 Byte hash of offerer (or anything)" [(ngModel)]="key" name="OfferHash">
+        <input type="text" class="form-control" placeholder="Public key from Offerer" [(ngModel)]="pubOfferer" name="setValue">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Open offer</button>
+        </div>
+      </div>
+      <code>{{openOfferResult | json}}</code>
+    </form>
+
+    <br />
+    <br />
+
+    <form #validateOpenOfferForm="ngForm" (ngSubmit)="validateOpenOffer()">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Open offer</button>
+      </div>
+      <code>{{validateOpenOfferResult}}</code>
+      <br />
+      <br />
+      <code>{{validateOpenOfferResultAll | json}}</code>
+    </form>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-body">
+    <h2>Take Order</h2>
+
+    <form #takeOfferForm="ngForm" (ngSubmit)="takeOffer()">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="30 Byte hash of offerer (or anything)" [(ngModel)]="key" name="OfferHash">
+        <input type="text" class="form-control" placeholder="Public key from Sender" [(ngModel)]="pubSender" name="setValue">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Take offer</button>
+        </div>
+      </div>
+      <code>{{takeOfferResult | json}}</code>
+    </form>
+
+    <br />
+    <br />
+
+    <form #validateTakeOfferForm="ngForm" (ngSubmit)="validateTakeOffer()">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Take offer</button>
+      </div>
+      <code>{{validateTakeOfferResult }}</code>
+      <br />
+      <br />
+      <code>{{validateTakeOfferResultAll| json}}</code>
+    </form>
+  </div>
+</div>

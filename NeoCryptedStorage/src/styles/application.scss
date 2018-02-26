@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
+.has-error {
+
+  &, input, textarea, checkbox {
+    border-color: red;
+    color: red;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+  color: red;
+}

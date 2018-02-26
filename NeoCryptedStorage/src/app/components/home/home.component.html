@@ -1,0 +1,26 @@
+<div class="mb-3">
+  <h1>Welcome to LAVI</h1>
+
+  <p>
+    LAVI is a end to end encrypted data storage selling platform. A user can create offers for files / images groupons, basically any kind of digital data. The files, that are offered are fully encrypted on the client side. Neither the files nor any other kind of private information leaves the website. When the user uploads a file, it is already fully encrypted by a password he chooses.
+    <button type="button" class="btn btn-link p-0 d-block" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      More...
+    </button>
+  </p>
+  <p>For selling files, the NEO blockchain is used. It stores</p>
+  <ol>
+    <li><b>Open Offers</b> (Blockhain: key: <code>01 + hash of file</code>, value <code>public key of offerer</code>)</li>
+    <li><b>Take Offers</b> (Blockhain: key: <code>11 + hash of file</code>, value <code>public key of requester</code>)</li>
+    <li><b>Grant Offer</b> (Blockhain: key: <code>21 + hash of file</code>, value <code>password encrypted with a shared secret</code>)</li>
+  </ol>
+  <small>(Data is stored as bytearrays)</small>
+
+  <p>The focus of this implementation was, to make the user experince as easy as possible. The user only needs to enter his WIF ONCE! The rest of the application is usable without performing any blockchain related tasks. Transactions to the blockchain are done in the background with <code>neon-js</code>, files are encrypted with <code>aes</code> on the client. The user doesn't have to upload encrypted files.</p>
+  <p>For storage purposes a SQL database in the Azure cloud is used. The blockchain cannot store large amounts of data. Complex queries which go over simple key/value pairs are also extremly hard to do. The blockchain is therefor used, for what it can do best: as a <b>Store of Value.</b></p>
+  <p>The payment function is not yet included in the demo, becauuse currently NEO dAPPS create their own NEP5 tokens, when they need a currency in their contracts. This resoults in 10.000 different tokens, where only a few survive. Therefor this application LAVi aims to reuse an existing token, which is used for more then one dAPP. However currently neither NEO nor GAS nore any other toke would be suitable.</p>
+  <br />
+  <p>Anyway, you are currently on the dashboard of LAVI. The Login button is on the right side. Use a <b>TESTNET</b> WIF key, to start uploading and offering files.</p>
+  <p>This app is currenty in an early alpha, so error messags might be very misleading and things might break.</p>
+  <p>If you downlaoded this repository form github, obviously my connection credentials are not included (hopefully ;). In the bottom right, you find test example for basic functions of this app (generating shared secrets, connection to the blockchain etc.). These are not deployed on the testnet, you find the Smart contract code under tests.</p>
+</div>
